@@ -1,0 +1,16 @@
+# Find the largest Fibonacci number less than a given number ‘n’ assuming:
+##No such list is available
+def find_largest_fib_preexisting(fib_list, n):
+    largest_fib = None
+    for fib in fib_list:
+        if fib < n:
+            largest_fib = fib
+        else:
+            break
+    return largest_fib
+
+
+fib_list = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
+n = int(input("Enter the number n: "))
+largest_fib = find_largest_fib_preexisting(fib_list, n)
+print("The largest Fibonacci number less than", n, "is:", largest_fib)
