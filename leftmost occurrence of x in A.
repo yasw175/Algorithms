@@ -1,0 +1,25 @@
+#Given a sorted list A in ascending order and an element x, efficiently find the leftmost occurrence of x in A.
+def find_leftmost_occurrence(A, x):
+    left, right = 0, len(A) - 1
+    result = -1  
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        if A[mid] == x:
+            result = mid  
+            right = mid - 1
+        elif A[mid] < x:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return result
+
+
+A = [1, 2, 2, 2, 3, 4, 5]
+x = 2
+index = find_leftmost_occurrence(A, x)
+if index != -1:
+    print(f"The leftmost occurrence of {x} is at index {index}")
+else:
+    print(f"The element {x} is not present in the list")
