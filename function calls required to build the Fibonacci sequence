@@ -1,0 +1,17 @@
+##ii) Write a code to determine the number of function calls required to build the Fibonacci sequence until the specified limit.
+def generate_fibonacci(limit):
+    fibonacci_sequence = [0, 1]
+    function_calls = 1
+    while True:
+        function_calls += 1
+        next_value = fibonacci_sequence[-1] + fibonacci_sequence[-2]
+        if next_value > limit:
+            break
+        fibonacci_sequence.append(next_value)
+    return fibonacci_sequence, function_calls
+
+
+limit = int(input("Enter the limit: "))
+fibonacci_sequence, function_calls = generate_fibonacci(limit)
+print("The Fibonacci sequence up to the limit", limit, "is:", fibonacci_sequence)
+print("The number of function calls is:", function_calls)
