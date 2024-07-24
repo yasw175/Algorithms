@@ -1,0 +1,44 @@
+#(Zeckendorf representation) 
+#(i) (Greedy Strategy) Develop an algorithm to find a unique representation of a number using the Fibonacci sequence. 
+def generate_fibonacci_up_to(max_value):
+    """Generate Fibonacci numbers up to a maximum value."""
+    fib_numbers = [1, 2]
+    while True:
+        next_fib = fib_numbers[-1] + fib_numbers[-2]
+        if next_fib > max_value:
+            break
+        fib_numbers.append(next_fib)
+    return fib_numbers
+
+def zeckendorf_representation(n):
+    """Find Zeckendorf representation of a number."""
+    # Generate Fibonacci numbers up to n
+    fib_numbers = generate_fibonacci_up_to(n)
+    
+    
+    representation = []
+    current = n
+    
+    
+    while current > 0:
+        # Find the largest Fibonacci number <= current
+        for fib in reversed(fib_numbers):
+            if fib <= current:
+                representation.append(fib)
+                current -= fib
+                break
+    
+    return representation
+
+def main():
+  
+    n = int(input("Enter a number to represent using Fibonacci sequence: "))
+    
+  
+    representation = zeckendorf_representation(n)
+    
+  
+    print(f"Zeckendorf representation of {n} is: {representation}")
+
+if __name__ == "__main__":
+    main()
