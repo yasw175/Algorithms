@@ -1,0 +1,18 @@
+#(i) Given two positive integers a and b, write an iterative algorithm to determine the quotient and remainder when a is divided by b.
+#You should write a while loop and should not use the division and remainder operators.
+def divide(a,b):
+    if b==0:
+        raise ValueError("the divisior b cant be a Zero")
+    quotient=0
+    remainder =a
+    
+    while remainder >=b:
+        remainder -=b
+        quotient +=1
+        
+    return remainder,quotient
+a=int(input("Enter the number: "))
+b=int(input("Enter the number: "))
+quotient,remainder= divide(a,b)
+print(f"The Quotient of the number a and b is:{quotient}")
+print(f"The remainder of the number a and b is:{remainder}")
